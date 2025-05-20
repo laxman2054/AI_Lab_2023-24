@@ -1,6 +1,7 @@
+
 # Ex.No: 10  Logic Programming –  Simple queries from facts and rules
-### DATE: 20/05/2025                                                                           
-### REGISTER NUMBER : 212222040159
+### DATE: 29.04.2025                                                                       
+### REGISTER NUMBER : 212222060028
 ### AIM: 
 To write a prolog program to find the answer of query. 
 ###  Algorithm:
@@ -21,22 +22,20 @@ Construct the FOL representation for the following sentences <br>
 5.	 Bill eats peanuts  <br> 
    Convert into clause form and Prove that John like Apple by using Prolog. <br> 
 ### Program:
+
+
 ```
-likes(john,X):-
- food(X).
-eats(bill,X):-
- eats(sue,X).
-eats(Y,X):-
- food(X).
-eats(bill,peanuts).
+likes(john,X):-food(X).
 food(apple).
 food(chicken).
-food(peanuts).
+eats(sue,X):-eats(bill,X).
+eats(bill,peanuts).
+
 ```
 
-### Output:
 
-![image](https://github.com/Mena-Rossini/AI_Lab_2023-24/assets/102855266/aa9e4ec8-9481-4f69-9d95-997d6c1f0d27)
+### Output:
+![Screenshot 2025-03-21 155704](https://github.com/user-attachments/assets/65d14ce2-3d4b-44e1-a657-ad86c2478dcf)
 
 
 ### Task 2:
@@ -47,48 +46,51 @@ Consider the following facts and represent them in predicate form: <br>
 4. BK301 is Have fun department course.<br> 
 Convert the facts in predicate form to clauses and then prove by resolution: “Steve likes BK301 course”<br> 
 
-### Program:
+### Program
 ```
 likes(steve,X):-
- easycourse(X).
+     easycourse(X).
 hard(sciencecourse).
 easycourse(X):-
- course(X,dept(havefun)).
+          course(X,dept(havefun)).
 course(bk301,dept(havefun)).
 ```
 
 ### Output:
-
-![image](https://github.com/Mena-Rossini/AI_Lab_2023-24/assets/102855266/4bcbb149-8176-4837-94ba-b31da9e63479)
+![Screenshot 2025-03-21 160715](https://github.com/user-attachments/assets/2bf44ea8-122b-4eaf-a507-cf58cea901c6)
 
 ### Task 3:
+
 Consider the statement <br> 
 “This is a crime for an American to sell weapons to hostile nations. The Nano , enemy of America has some missiles and its missiles were sold it by Colonal West who is an American” <br> 
 Convert to Clause form and prove west is criminal by using Prolog.<br> 
 ### Program:
 ```
-criminal(X):-
- american(X),
- weapon(Y),
- hostile(Z),
- sells(X,Y,Z).
-weapon(Y):-
- missile(Y).
-hostile(Z):-
- enemy(Z,X).
-sells(west,Y,nano):-
- missile(Y),
- owns(nano,Y).
-missile(m).
-owns(nano,m).
-enemy(nano,america).
-american(west). 
+criminal(X) :- 
+    american(X),
+    weapon(Y),
+    hostile(Z),
+    sells(X, Y, Z).
 
+weapon(Y) :- 
+    missile(Y).
+
+hostile(Z) :- 
+    enemy(Z, america).  
+sells(west, Y, nano) :- 
+    missile(Y),
+    owns(nano, Y).
+
+missile(m).
+owns(nano, m).
+enemy(nano, america).
+american(west).
 ```
 
-### Output:
 
-![image](https://github.com/Mena-Rossini/AI_Lab_2023-24/assets/102855266/dbb5a88f-3abe-4a4c-bdb9-25004dc168fb)
+
+### Output:
+![Screenshot 2025-03-21 161048](https://github.com/user-attachments/assets/716fc203-fd9d-47dc-91da-0c80fdef0b29)
 
 
 ### Result:
